@@ -1,0 +1,13 @@
+$ calibredb saved_searches --with-library $LIB add gothic 'tags:Gothic'
+gothic added
+$ calibredb saved_searches --with-library $LIB list
+Name: gothic
+Search string: tags:Gothic
+
+$ calibredb list --with-library $LIB --search search:gothic --fields title,authors
+id title                                  authors                    
+2 Frankenstein; or, The modern           Mary Wollstonecraft
+  Prometheus                             Shelley
+$ calibredb list_categories --with-library $LIB --categories tags -i
+category tag_name       count rating 
+tags     CATEGORY ITEMS 4            

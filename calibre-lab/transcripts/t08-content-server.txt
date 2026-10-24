@@ -1,0 +1,24 @@
+$ calibre-server --port 18099 $LIB   (background)
+$ curl -s http://127.0.0.1:18099/ | grep -o '<title>[^<]*</title>'
+<title>calibre</title>
+<title>send</title>
+
+$ curl -s 'http://127.0.0.1:18099/opds' | head -c 600
+<?xml version='1.0' encoding='utf-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:opds="http://opds-spec.org/2010/catalog">
+  <title>calibre Library</title>
+  <subtitle>Books in your library</subtitle>
+  <author>
+    <name>calibre</name>
+    <uri>https://calibre-ebook.com</uri>
+  </author>
+  <id>urn:calibre:main</id>
+  <icon>/favicon.png</icon>
+  <updated>2026-10-24T04:32:21+00:00</updated>
+  <link rel="search" title="Search" href="/opds/search/{searchTerms}?library_id=library" type="application/atom+xml"/>
+  <link href="/opds?library_id=library" type=
+
+$ curl -s 'http://127.0.0.1:18099/ajax/books' | head -c 400
+{"1": {"comments": null, "authors": ["Lewis Carroll"], "tags": ["Classic fiction", "Childrens fiction"], "cover": "/get/cover/1/library", "title": "Alice's Adventures in Wonderland", "languages": ["eng"], "link_maps": {}, "title_sort": "Alice's Adventures in Wonderland", "publisher": null, "identifiers": {"uri": "http://www.gutenberg.org/11"}, "rating": 4.0, "last_modified": "2026-10-24T04:32:21+0
+$ kill $(cat server.pid)
+server stopped

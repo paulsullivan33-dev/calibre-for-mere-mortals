@@ -1,0 +1,42 @@
+$ calibredb set_metadata --with-library $LIB 1 --field tags:'Classic fiction, Childrens fiction' --field rating:8
+Title               : Alice's Adventures in Wonderland
+Title sort          : Alice's Adventures in Wonderland
+Author(s)           : Lewis Carroll [Carroll, Lewis]
+Tags                : Classic fiction, Childrens fiction
+Languages           : eng
+Rating              : 5
+Timestamp           : 2026-10-24T04:30:39+00:00
+Published           : 2008-06-27T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/11
+$ calibredb set_metadata --with-library $LIB 2 --field tags:'Classic fiction, Gothic, Horror' --field rating:9
+Title               : Frankenstein; or, The modern Prometheus
+Title sort          : Frankenstein; or, The modern Prometheus
+Author(s)           : Mary Wollstonecraft Shelley [Shelley, Mary Wollstonecraft]
+Tags                : Classic fiction, Gothic, Horror
+Languages           : eng
+Rating              : 5
+Timestamp           : 2026-10-24T04:30:41+00:00
+Published           : 1993-10-01T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/84
+
+$ calibredb show_metadata --with-library $LIB 1
+Title               : Alice's Adventures in Wonderland
+Title sort          : Alice's Adventures in Wonderland
+Author(s)           : Lewis Carroll [Carroll, Lewis]
+Tags                : Classic fiction, Childrens fiction
+Languages           : eng
+Rating              : 5
+Timestamp           : 2026-10-24T04:30:39+00:00
+Published           : 2008-06-27T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/11
+
+$ calibredb show_metadata --with-library $LIB 2
+Title               : Frankenstein; or, The modern Prometheus
+Title sort          : Frankenstein; or, The modern Prometheus
+Author(s)           : Mary Wollstonecraft Shelley [Shelley, Mary Wollstonecraft]
+Tags                : Classic fiction, Gothic, Horror
+Languages           : eng
+Rating              : 5
+Timestamp           : 2026-10-24T04:30:41+00:00
+Published           : 1993-10-01T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/84

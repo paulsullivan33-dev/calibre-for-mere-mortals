@@ -1,0 +1,11 @@
+$ QTWEBENGINE_CHROMIUM_FLAGS=--no-sandbox ebook-convert downloads/alice.epub converted/alice.pdf
+100% Updated metadata in PDF
+PDF output written to /home/hatch/workspace/calibre-lab-work/converted/alice.pdf
+Output saved to   /home/hatch/workspace/calibre-lab-work/converted/alice.pdf
+
+total 656
+drwxrws--- 1 root nogroup     38 Oct 24 04:32 .
+drwxrws--- 1 root nogroup    206 Oct 24 04:31 ..
+-rw-rw---- 1 root nogroup 189810 Oct 24 04:31 alice.mobi
+-rw-rw---- 1 root nogroup 477513 Oct 24 04:32 alice.pdf
+converted/alice.pdf: PDF document, version 1.4, 93 page(s)

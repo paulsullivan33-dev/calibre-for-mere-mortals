@@ -1,0 +1,31 @@
+What "show_metadata" prints — calibre-lab/transcripts/t03 and t05
+====================================================================
+
+A book as it arrived from Project Gutenberg (t03):
+
+$ calibredb show_metadata --with-library $LIB 2
+Title               : Frankenstein; or, The modern Prometheus
+Title sort          : Frankenstein; or, The modern Prometheus
+Author(s)           : Mary Wollstonecraft Shelley [Shelley, Mary Wollstonecraft]
+Tags                : Science fiction, Horror tales, Gothic fiction,
+                      Scientists -- Fiction, Monsters -- Fiction,
+                      Frankenstein, Victor (Fictitious character) -- Fiction,
+                      Frankenstein's monster (Fictitious character) -- Fiction
+Languages           : eng
+Timestamp           : 2026-10-24T04:30:41+00:00
+Published           : 1993-10-01T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/84
+
+The same book after the chapter 5 tidy — tags replaced (t05)
+and the rating set to 4.5 stars (t05b):
+
+$ calibredb show_metadata --with-library $LIB 2
+Title               : Frankenstein; or, The modern Prometheus
+Title sort          : Frankenstein; or, The modern Prometheus
+Author(s)           : Mary Wollstonecraft Shelley [Shelley, Mary Wollstonecraft]
+Tags                : Classic fiction, Gothic, Horror
+Languages           : eng
+Rating              : 4.5
+Timestamp           : 2026-10-24T04:30:41+00:00
+Published           : 1993-10-01T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/84

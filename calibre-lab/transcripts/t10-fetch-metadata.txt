@@ -1,0 +1,31 @@
+$ fetch-ebook-metadata --title Frankenstein --authors 'Mary Wollstonecraft Shelley' --opf
+Warming up camoufox on: https://www.reddit.com/r/Music, https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first, https://en.wikipedia.org/wiki/Lists_of_deaths_by_year
+Failed to download live module calibre.web.automate.metadata
+Traceback (most recent call last):
+  File "calibre/live.py", line 80, in download_worker
+  File "calibre/live.py", line 201, in latest_data_for_module
+  File "calibre/live.py", line 122, in fetch_module
+  File "calibre/utils/https.py", line 93, in get_https_resource_securely
+  File "http/client.py", line 1520, in connect
+  File "http/client.py", line 1051, in connect
+  File "socket.py", line 850, in create_connection
+  File "socket.py", line 989, in getaddrinfo
+  File "encodings/idna.py", line 203, in encode
+UnicodeEncodeError: 'idna' codec can't encode characters in position 0-64: label too long
+encoding with 'idna' codec failed
+fetch-exit=0
+
+$ http_proxy=http://127.0.0.1:18080 https_proxy=http://127.0.0.1:18080 fetch-ebook-metadata --title Frankenstein --authors 'Mary Wollstonecraft Shelley' --opf
+Warming up camoufox on: https://x.com, https://www.reddit.com/r/pics, https://en.wikipedia.org/wiki/Green
+Failed to download live module calibre.web.automate.metadata
+Traceback (most recent call last):
+  File "calibre/live.py", line 80, in download_worker
+  File "calibre/live.py", line 201, in latest_data_for_module
+  File "calibre/live.py", line 122, in fetch_module
+  File "calibre/utils/https.py", line 93, in get_https_resource_securely
+  File "http/client.py", line 1527, in connect
+  File "ssl.py", line 469, in wrap_socket
+  File "ssl.py", line 1087, in _create
+  File "ssl.py", line 1383, in do_handshake
+TimeoutError: _ssl.c:1064: The handshake operation timed out
+fetch-exit=0

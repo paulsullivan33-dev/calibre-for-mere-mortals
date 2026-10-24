@@ -1,0 +1,6 @@
+$ calibredb set_metadata --with-library $LIB 1 --field rating:4
+$ calibredb set_metadata --with-library $LIB 2 --field rating:4.5
+id title                                  rating 
+1 Alice's Adventures in Wonderland       8
+2 Frankenstein; or, The modern           9
+  Prometheus                             

@@ -1,0 +1,12 @@
+$ calibredb add --with-library $LIB downloads/alice.epub downloads/frankenstein.epub
+Added book ids: 1, 2
+
+$ find $LIB -type f | sort
+library/.calnotes/notes.db
+library/Lewis Carroll/Alice's Adventures in Wonderland (1)/Alice's Adventures in Wonderland - Lewis Carroll.epub
+library/Lewis Carroll/Alice's Adventures in Wonderland (1)/cover.jpg
+library/Lewis Carroll/Alice's Adventures in Wonderland (1)/metadata.opf
+library/Mary Wollstonecraft Shelley/Frankenstein; or, The modern Prometheus (2)/Frankenstein; or, The modern Prometheus - Mary Wollstonecraft Shelley.epub
+library/Mary Wollstonecraft Shelley/Frankenstein; or, The modern Prometheus (2)/cover.jpg
+library/Mary Wollstonecraft Shelley/Frankenstein; or, The modern Prometheus (2)/metadata.opf
+library/metadata.db

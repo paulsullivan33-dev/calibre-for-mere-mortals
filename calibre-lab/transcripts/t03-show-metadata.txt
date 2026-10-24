@@ -1,0 +1,19 @@
+$ calibredb show_metadata --with-library $LIB 1
+Title               : Alice's Adventures in Wonderland
+Title sort          : Alice's Adventures in Wonderland
+Author(s)           : Lewis Carroll [Carroll, Lewis]
+Tags                : Fantasy fiction, Children's stories, Imaginary places -- Juvenile fiction, Alice (Fictitious character from Carroll) -- Juvenile fiction
+Languages           : eng
+Timestamp           : 2026-10-24T04:30:39+00:00
+Published           : 2008-06-27T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/11
+
+$ calibredb show_metadata --with-library $LIB 2
+Title               : Frankenstein; or, The modern Prometheus
+Title sort          : Frankenstein; or, The modern Prometheus
+Author(s)           : Mary Wollstonecraft Shelley [Shelley, Mary Wollstonecraft]
+Tags                : Science fiction, Horror tales, Gothic fiction, Scientists -- Fiction, Monsters -- Fiction, Frankenstein, Victor (Fictitious character) -- Fiction, Frankenstein's monster (Fictitious character) -- Fiction
+Languages           : eng
+Timestamp           : 2026-10-24T04:30:41+00:00
+Published           : 1993-10-01T00:00:00+00:00
+Identifiers         : uri:http://www.gutenberg.org/84

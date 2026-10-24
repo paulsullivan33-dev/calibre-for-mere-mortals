@@ -1,0 +1,30 @@
+$ calibredb list --with-library $LIB
+id title                                  authors                    
+1 Alice's Adventures in Wonderland       Lewis Carroll
+2 Frankenstein; or, The modern           Mary Wollstonecraft
+  Prometheus                             Shelley
+
+$ calibredb list --with-library $LIB --fields title,authors,tags,formats,size --sort-by authors
+id title                                  authors                    tags                     formats             size   
+2 Frankenstein; or, The modern           Mary Wollstonecraft        Science fiction, Horror  [/home/hatch/worksp 294175
+  Prometheus                             Shelley                    tales, Gothic fiction,   ace/calibre-lab-    
+                                                                    Scientists -- Fiction,   work/library/Mary   
+                                                                    Monsters -- Fiction,     Wollstonecraft Shel 
+                                                                    Frankenstein, Victor     ley/Frankenstein;   
+                                                                    (Fictitious character)   or, The modern      
+                                                                    -- Fiction,              Prometheus          
+                                                                    Frankenstein's monster   (2)/Frankenstein;   
+                                                                    (Fictitious character)   or, The modern      
+                                                                    -- Fiction               Prometheus - Mary   
+                                                                                             Wollstonecraft      
+                                                                                             Shelley.epub]       
+1 Alice's Adventures in Wonderland       Lewis Carroll              Fantasy fiction,         [/home/hatch/worksp 136756
+                                                                    Children's stories,      ace/calibre-lab-    
+                                                                    Imaginary places --      work/library/Lewis  
+                                                                    Juvenile fiction, Alice  Carroll/Alice's     
+                                                                    (Fictitious character    Adventures in       
+                                                                    from Carroll) --         Wonderland          
+                                                                    Juvenile fiction         (1)/Alice's         
+                                                                                             Adventures in       
+                                                                                             Wonderland - Lewis  
+                                                                                             Carroll.epub]       

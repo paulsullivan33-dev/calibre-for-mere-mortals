@@ -1,0 +1,26 @@
+$ ebook-convert downloads/alice.epub converted/alice.pdf
+This plugin does not support createPlatformVulkanInstance
+QVulkanInstance: Failed to initialize Vulkan
+Unable to detect GPU vendor.
+[24297:24297:1024/043145.084460:ERROR:zygote_host_impl_linux.cc(105)] Running as root without --no-sandbox is not supported. See https://crbug.com/638180.
+
+$ ebook-convert downloads/alice.epub converted/alice.mobi
+  Compressing markup content...
+Generating MOBI index for a book
+MOBI output written to /home/hatch/workspace/calibre-lab-work/converted/alice.mobi
+Output saved to   /home/hatch/workspace/calibre-lab-work/converted/alice.mobi
+
+$ ls -la converted/; file converted/*
+total 188
+drwxrws--- 1 root nogroup     20 Oct 24 04:31 .
+drwxrws--- 1 root nogroup    206 Oct 24 04:31 ..
+-rw-rw---- 1 root nogroup 189810 Oct 24 04:31 alice.mobi
+converted/alice.mobi: Mobipocket E-book "Alice's Adventures in Wonderland", 228070 bytes uncompressed, version 6, codepage 65001
+
+$ calibredb add_format --with-library $LIB 1 converted/alice.mobi
+$ calibredb list --with-library $LIB --fields title,formats -w 200
+id title                                   formats                                                                                                                                                       
+1 Alice's Adventures in Wonderland        [/home/hatch/workspace/calibre-lab-work/library/Lewis Carroll/Alice's Adventures in Wonderland (1)/Alice's Adventures in Wonderland - Lewis Carroll.epub,
+                                          /home/hatch/workspace/calibre-lab-work/library/Lewis Carroll/Alice's Adventures in Wonderland (1)/Alice's Adventures in Wonderland - Lewis Carroll.mobi]
+2 Frankenstein; or, The modern Prometheus [/home/hatch/workspace/calibre-lab-work/library/Mary Wollstonecraft Shelley/Frankenstein; or, The modern Prometheus (2)/Frankenstein; or, The modern
+                                          Prometheus - Mary Wollstonecraft Shelley.epub]

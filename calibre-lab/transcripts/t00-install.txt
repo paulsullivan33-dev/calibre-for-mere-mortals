@@ -1,0 +1,117 @@
+$ sh linux-installer.sh   (run under script(1) to give the installer a tty)
+Using python executable: /usr/bin/python3
+You are missing the system library libEGL.so.1. Try installing packages such as libegl1 and libopengl0
+installer-exit=1
+
+$ sh linux-installer.sh   (second run, after installing libegl1/libopengl0/libxcb-cursor0)
+Using python executable: /usr/bin/python3
+WARNING: Your current umask disallows reading of files by some users, this can cause system breakage when running the installer because of bugs in common system utilities. 
+Should the installer (f)ix the umask, (i)gnore it or (a)bort [f/i/a Default is abort]: 
+$ umask 022; sh linux-installer.sh   (third run, umask fixed)
+Using python executable: /usr/bin/python3
+Installing to /opt/calibre
+Downloading tarball signature securely...
+Removing invalid node_use_env proxy: 1 
+Using proxies: {'https': 'hatch-runtime:1fdae691338e448898c93cc1ec4a54f0@hatch-egress-proxy:3128', 'no': 'localhost,127.0.0.1,::1,[::1],198.19.0.1,198.19.0.2,fd8b:4f84:7d32:99::1,[fd8b:4f84:7d32:99::1],fd8b:4f84:7d32:99::2,[fd8b:4f84:7d32:99::2]', 'all': 'http://hatch-runtime:1fdae691338e448898c93cc1ec4a54f0@hatch-egress-proxy:3128', 'http': 'hatch-runtime:1fdae691338e448898c93cc1ec4a54f0@hatch-egress-proxy:3128'} 
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<string>", line 887, in script_launch
+  File "<string>", line 843, in main
+  File "<string>", line 705, in run_installer
+  File "<string>", line 681, in download_and_extract
+  File "<string>", line 669, in get_tarball_info
+  File "<string>", line 621, in get_https_resource_securely
+  File "/usr/lib/python3.12/http/client.py", line 1499, in connect
+    super().connect()
+  File "/usr/lib/python3.12/http/client.py", line 1030, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 828, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/encodings/idna.py", line 175, in encode
+    raise UnicodeError("label too long")
+UnicodeError: label too long
+encoding with 'idna' codec failed
+installer-exit=1
+
+$ curl -s https://calibre-ebook.com/dist/linux  -> <html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+$ curl -LO https://download.calibre-ebook.com/<html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>/calibre-<html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>-x86_64.txz
+
+$ curl -sL -o calibre-9.17.0-x86_64.txz https://calibre-ebook.com/dist/linux-x86_64
+# (redirects to the project GitHub release of v9.17.0)
+9faf38f6bb0593598208fbde1be247d698a98d9f16e130ca6507049a02b1d9b65f7d10eeca15f5073d0372f7bb2d45d6c63d39a37f1b13a3cbaf81918e715711  calibre-9.17.0-x86_64.txz
+$ mkdir -p /opt/calibre && tar -xJf calibre-9.17.0-x86_64.txz -C /opt/calibre
+$ /opt/calibre/calibre_postinstall
+xdg-desktop-menu: No writable system menu directory found.
+Creating symlinks...
+	Symlinking /opt/calibre/ebook-device to /usr/bin/ebook-device
+	Symlinking /opt/calibre/ebook-meta to /usr/bin/ebook-meta
+	Symlinking /opt/calibre/ebook-convert to /usr/bin/ebook-convert
+	Symlinking /opt/calibre/ebook-polish to /usr/bin/ebook-polish
+	Symlinking /opt/calibre/markdown-calibre to /usr/bin/markdown-calibre
+	Symlinking /opt/calibre/web2disk to /usr/bin/web2disk
+	Symlinking /opt/calibre/calibre-server to /usr/bin/calibre-server
+	Symlinking /opt/calibre/lrf2lrs to /usr/bin/lrf2lrs
+	Symlinking /opt/calibre/lrs2lrf to /usr/bin/lrs2lrf
+	Symlinking /opt/calibre/calibre-debug to /usr/bin/calibre-debug
+	Symlinking /opt/calibre/calibredb to /usr/bin/calibredb
+	Symlinking /opt/calibre/calibre-parallel to /usr/bin/calibre-parallel
+	Symlinking /opt/calibre/calibre-customize to /usr/bin/calibre-customize
+	Symlinking /opt/calibre/fetch-ebook-metadata to /usr/bin/fetch-ebook-metadata
+	Symlinking /opt/calibre/calibre-smtp to /usr/bin/calibre-smtp
+	Symlinking /opt/calibre/calibre to /usr/bin/calibre
+	Symlinking /opt/calibre/lrfviewer to /usr/bin/lrfviewer
+	Symlinking /opt/calibre/ebook-viewer to /usr/bin/ebook-viewer
+	Symlinking /opt/calibre/ebook-edit to /usr/bin/ebook-edit
+Setting up command-line completion...
+Installing zsh completion to: /usr/share/zsh/vendor-completions/_calibre
+Failed to find directory to install bash completions, using default.
+Installing bash completion to: /usr/share/bash-completion/completions/
+Setting up desktop integration...
+
+____________________ WARNING ____________________
+Setting up desktop integration failed with error:
+__________________________________________________
+
+
+	Traceback (most recent call last):
+	  File "calibre/linux.py", line 937, in setup_desktop_integration
+	  File "calibre/linux.py", line 959, in do_setup_desktop_integration
+	  File "calibre/linux.py", line 1062, in install_xdg_junk
+	  File "subprocess.py", line 420, in check_call
+	subprocess.CalledProcessError: Command 'xdg-desktop-menu install --noupdate ./calibre-gui.desktop' returned non-zero exit status 3.
+
+Creating un-installer: /usr/bin/calibre-uninstall
+
+
+There were 1 warnings
+
+* Setting up desktop integration failed with error:
+
+$ calibre --version; calibredb --version; ebook-convert --version
+calibre (calibre 9.17)
+calibredb (calibre 9.17)
+ebook-convert (calibre 9.17.0)
+Created by: Kovid Goyal <kovid@kovidgoyal.net>

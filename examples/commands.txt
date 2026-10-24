@@ -1,0 +1,85 @@
+Calibre — the distilled commands
+====================================================================
+Placeholders: LIB is the path to your library folder. Set it
+once per shell:  export LIB=$HOME/library
+On a machine with no display, also:  export QT_QPA_PLATFORM=offscreen
+
+INSTALL (chapter 3)
+--------------------------------------------------------------------
+  # Windows / Mac: installer from https://calibre-ebook.com/download
+  # Linux: the project's installer, not the distro package
+  sudo -v
+  wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh \
+    | sudo sh /dev/stdin
+  sudo apt install libegl1 libopengl0 libxcb-cursor0   # headless Ubuntu
+  calibre --version; calibredb --version; ebook-convert --version
+
+THE LIBRARY (chapters 2, 4)
+--------------------------------------------------------------------
+  calibredb add --with-library "$LIB" book.epub
+  calibredb add --with-library "$LIB" --recurse ~/Downloads/ebooks
+  calibredb add --with-library "$LIB" --recurse \
+    --one-book-per-directory ~/sorted-books
+  calibredb add --with-library "$LIB" --automerge new-format.epub
+  calibredb add_format --with-library "$LIB" 1 book.mobi
+  calibredb add --with-library "$LIB" --empty \
+    --title "A Paper Book" --authors "A. Writer"
+  # rule: never add, rename or delete files inside the library
+  # folder by hand. Ever. Chapter 2.
+
+LOOKING AND SEARCHING (chapters 5, 7)
+--------------------------------------------------------------------
+  calibredb list --with-library "$LIB"
+  calibredb list --with-library "$LIB" \
+    --fields title,authors,tags,formats,rating --sort-by authors
+  calibredb show_metadata --with-library "$LIB" 1
+  calibredb search --with-library "$LIB" author:carroll
+  calibredb list --with-library "$LIB" --search 'tags:Horror'
+  calibredb saved_searches --with-library "$LIB" \
+    add gothic 'tags:Gothic'
+  calibredb list --with-library "$LIB" --search search:gothic
+  calibredb list_categories --with-library "$LIB" \
+    --categories tags --item_count
+
+METADATA (chapter 5)
+--------------------------------------------------------------------
+  calibredb set_metadata --with-library "$LIB" 2 \
+    --field "tags:Classic fiction, Gothic, Horror"
+  calibredb set_metadata --with-library "$LIB" 2 --field rating:4.5
+    # ratings are STARS, 0-5, halves allowed; 'list' prints the
+    # stored value doubled (0-10). Chapter 5 has the receipts.
+  calibredb set_metadata --with-library "$LIB" --list-fields
+  calibredb embed_metadata --with-library "$LIB" all
+  fetch-ebook-metadata --title Frankenstein \
+    --authors "Mary Wollstonecraft Shelley" --opf
+    # (lab could not verify: see lab-notes.txt)
+
+CONVERTING (chapter 6)
+--------------------------------------------------------------------
+  ebook-convert alice.epub alice.mobi
+  ebook-convert alice.epub alice.azw3     # modern Kindles
+  ebook-convert alice.epub alice.pdf
+  QTWEBENGINE_CHROMIUM_FLAGS=--no-sandbox \
+    ebook-convert alice.epub alice.pdf    # when running as root
+  # then attach to the library record:
+  calibredb add_format --with-library "$LIB" 1 alice.mobi
+
+THE SERVER (chapter 9)
+--------------------------------------------------------------------
+  calibre-server --port 8080 "$LIB"
+  calibre-server --port 8080 --enable-auth \
+    --manage-users "$LIB"               # create users first
+  # browse:  http://server:8080/        OPDS:  /opds
+  calibredb list --with-library http://server:8080/#library \
+    --username you --password '...'     # work through the server
+
+BACKUP AND HEALTH (chapter 10)
+--------------------------------------------------------------------
+  # the whole backup, with calibre stopped:
+  cp -a "$LIB" ~/backups/library-$(date +%F)
+  calibredb export --with-library "$LIB" --all --to-dir ~/export
+  calibredb check_library --with-library "$LIB"
+  calibredb backup_metadata --with-library "$LIB" --all
+  calibredb restore_database --with-library "$LIB" --really-do-it
+    # last resort: rebuilds from metadata.opf files; saved
+    # searches and virtual libraries do not come back.

@@ -1,0 +1,86 @@
+The lab — one real install, run entirely headless
+====================================================================
+
+The lab is the project's own software on the
+build machine (Ubuntu 24.04), with no display
+attached, driven from the command line only:
+
+  * calibre 9.17.0, the current release on
+    build day (2026-10-24), installed into
+    /opt/calibre from the project's own
+    tarball; the extracted build is 654 MB,
+    the download 201.6 MB.
+  * System libraries libegl1, libopengl0 and
+    libxcb-cursor0 (plus their dependencies)
+    added first — the CLI tools load Qt even
+    with no screen.
+  * Every calibre command ran with
+    QT_QPA_PLATFORM=offscreen.
+  * The library held exactly two books, both
+    public domain, both fetched as EPUB from
+    Project Gutenberg: Alice's Adventures in
+    Wonderland (Lewis Carroll, Gutenberg #11)
+    and Frankenstein; or, The modern
+    Prometheus (Mary Wollstonecraft Shelley,
+    Gutenberg #84).
+
+Declared deviations from the documented
+install path:
+
+  * The official installer could not complete
+    on the lab network. Its signature step
+    fetches from code.calibre-ebook.com with
+    a small HTTPS helper that parses proxy
+    addresses by hand; the lab's egress proxy
+    address contains credentials, which the
+    helper mangles into an unresolvable
+    "hostname" (an idna "label too long"
+    error), and the signature host in any
+    case returned empty replies through the
+    lab's network. The lab therefore fetched
+    the identical tarball the installer would
+    fetch (calibre-ebook.com/dist/linux-x86_64
+    redirects to the project's GitHub release
+    of v9.17.0), unpacked it into /opt/calibre
+    and ran calibre_postinstall. The one step
+    not reproduced is the installer's SHA-512
+    signature check, which needs the
+    unreachable host.
+  * The GUI was never run — there is no
+    display on the lab machine. Everything
+    the guide says about windows, dialogs and
+    the viewer is from the project's manual
+    and labelled documented-only.
+
+Bench notes worth keeping:
+
+  * Ratings are the confusing part. Set in
+    stars (0-5, halves allowed, above 5
+    silently capped), stored doubled (0-10);
+    show_metadata and the content server
+    print stars, calibredb list prints the
+    raw doubled value. Verified three ways
+    in transcripts t05, t05b and t08.
+  * PDF output is rendered by an embedded
+    Chromium and refuses to run as root
+    ("Running as root without --no-sandbox");
+    QTWEBENGINE_CHROMIUM_FLAGS=--no-sandbox
+    is the working answer for servers and
+    containers. EPUB-to-MOBI needs no such
+    coaxing.
+  * Inherited metadata is raw material: the
+    Gutenberg Frankenstein arrived with eight
+    Library of Congress subject headings as
+    tags and no description. Normal.
+  * fetch-ebook-metadata could not be
+    verified: calibre 9.17 downloads a helper
+    module from code.calibre-ebook.com before
+    querying any source, and that host was
+    unreachable from the lab (see deviation
+    above). Both failed attempts are in
+    transcript t10. On an ordinary connection
+    the command is expected to work as the
+    manual describes.
+
+Transcripts of the verification runs are in
+calibre-lab/transcripts/, t00-t11.

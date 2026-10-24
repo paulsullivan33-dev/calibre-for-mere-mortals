@@ -1,0 +1,9 @@
+$ calibredb export --with-library $LIB --all --to-dir export
+$ find export -type f | sort
+export/Carroll, Lewis/Alice's Adventures in Wonderland/Alice's Adventures in Wonderland - Lewis Carroll.epub
+export/Carroll, Lewis/Alice's Adventures in Wonderland/Alice's Adventures in Wonderland - Lewis Carroll.jpg
+export/Carroll, Lewis/Alice's Adventures in Wonderland/Alice's Adventures in Wonderland - Lewis Carroll.mobi
+export/Carroll, Lewis/Alice's Adventures in Wonderland/Alice's Adventures in Wonderland - Lewis Carroll.opf
+export/Shelley, Mary Wollstonecraft/Frankenstein; or, The modern Prometheus/Frankenstein; or, The modern Prometheus - Mary Wollstonecraft Shelley.epub
+export/Shelley, Mary Wollstonecraft/Frankenstein; or, The modern Prometheus/Frankenstein; or, The modern Prometheus - Mary Wollstonecraft Shelley.jpg
+export/Shelley, Mary Wollstonecraft/Frankenstein; or, The modern Prometheus/Frankenstein; or, The modern Prometheus - Mary Wollstonecraft Shelley.opf

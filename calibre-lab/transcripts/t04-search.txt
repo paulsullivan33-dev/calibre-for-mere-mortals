@@ -1,0 +1,9 @@
+$ calibredb search --with-library $LIB author:carroll
+1
+$ calibredb list --with-library $LIB --search 'tags:Horror' --fields title,authors
+id title                                  authors                    
+2 Frankenstein; or, The modern           Mary Wollstonecraft
+  Prometheus                             Shelley
+
+$ calibredb search --with-library $LIB 'title:prometheus or author:shelley'
+2
