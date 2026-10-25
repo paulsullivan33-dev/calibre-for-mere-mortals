@@ -152,3 +152,19 @@ restore rehearsal costs minutes. The
 lab's transcripts live in
 `calibre-lab/transcripts/`; its notes are
 `examples/lab-notes.txt`.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [Pandoc for Mere Mortals](https://paulsullivan33-dev.github.io/pandoc-for-mere-mortals/)
+- [Audiobookshelf for Mere Mortals](https://paulsullivan33-dev.github.io/audiobookshelf-for-mere-mortals/)
+- [Markdown for Mere Mortals](https://paulsullivan33-dev.github.io/markdown-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/calibre-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/calibre-for-mere-mortals/blob/main/LICENSE-CODE).

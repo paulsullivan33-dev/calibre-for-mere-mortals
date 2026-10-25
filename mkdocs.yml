@@ -1,6 +1,7 @@
 site_name: Calibre for Mere Mortals
 site_description: Plain-language ebook management with calibre, from a small library you build yourself. Metadata you can trust, converting between formats, the command-line tools that make the library scriptable, and the content server that puts your books on the other screens in the house.
 site_url: https://paulsullivan33-dev.github.io/calibre-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
 
 # Guides live at the repo root (nice for GitHub browsing).
 # The deploy workflow copies them into docs/ before building.
